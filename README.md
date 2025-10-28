@@ -3,8 +3,9 @@ Code for [FSDFormer: a Frequency-Selected Differential Fusion Transformer for Re
 
 ## Model Architecture
 
-![FSDFormer Architecture](FSDFormer.jpg)
-*Figure: Overall architecture of the FSDFormer model*
+<div align="center"><img src="FSDFormer.jpg" width="75%" />
+  
+*Figure: Overall architecture of the FSDFormer model*</div>
 
 ## Project Structure
 
