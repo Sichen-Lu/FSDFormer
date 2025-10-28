@@ -1,0 +1,42 @@
+DEVICE          : cuda            # Device for training and evaluation
+SAVE_DIR        : ./experiments   # Directory to save experiment results
+
+MODEL:                                    
+  NAME          : FSDFormer       # Model name
+  BACKBONE      : Transformer     # Backbone network
+  PRETRAINED    : True            # Use pretrained weights or not
+
+DATASET:
+  NAME          : Daxing          # Dataset name
+  DATES_TRAIN   : 24              # Number of training dates
+  DATES_VAL     : 5               # Number of validation dates
+  IGNORE_LABEL  : 0
+  TRAIN         : 'Daxing_Train'  # Training image directory
+  VAL           : 'Daxing_Val'    # Validation image directory
+
+TRAIN:
+  IMAGE_SIZE    : [1640,1640]     # Training image size
+  PATCH_SIZE    : 256             # Patch size
+  NUM_WORKERS   : 1               # Number of data-loading workers
+  BATCH_SIZE    : 8               # Batch size
+  EPOCHS        : 200             # Number of training epochs
+  EVAL_INTERVAL : 1               # Evaluation interval
+  AMP           : false           # Enable automatic mixed precision or not
+  DP            : true            # Enable data parallelism or not
+  DDP           : false           # Enable distributed data parallelism or not
+
+LOSS:
+  NAME          : Mixloss         # Loss function name
+  CLS_WEIGHTS   : false           # Use class weights or not
+
+OPTIMIZER:
+  NAME          : adamw           # Optimizer name
+  LR            : 0.0001          # Learning rate
+  WEIGHT_DECAY  : 0               # Weight decay
+
+SCHEDULER:
+  NAME          : warmuppolylr    # Scheduler name
+  POWER         : 0.9             # Scheduler power
+  WARMUP        : 10              # Warm-up epochs
+  WARMUP_RATIO  : 0.1             # Warm-up ratio
+
